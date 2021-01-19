@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% block title %}<title>Lista de reservas</title>{% endblock %}
+    {% for booking in booking_list %}
+    <h2>{{booking}}</h2>
+    {% endfor %}
+{% endblock %}

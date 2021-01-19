@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% block title %}<title>Lista de apartamentos disponibles</title>{% endblock %}
+{% for apartment in apartment_list %}
+<h2>{{apartment}}</h2>
+{% endfor %}
+{% endblock %}
