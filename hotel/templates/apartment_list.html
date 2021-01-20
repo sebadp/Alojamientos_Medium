@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+    {% block title %}<title>Lista de apartamentos disponibles</title>{% endblock %}
+    {% block content %}
+
+    <h1 id="brand">Cabanias Saracura</h1>
+ 
+    <div class="content">
+        {% for apartment_category, apartment_url in apartment_list %}
+
+        <div class="room">
+            
+            <a href="{{ apartment_url }}">
+                <img
+                    src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60">
+
+                <h2>{{apartment_category}}</h2>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Commodi</p>
+            </a>
+        </div>
+
+    {% endfor %}
+
+    </div>
+
+{% endblock %}
+<!--     
+        <div class="room">
+            <a href="detail.html">
+                <img
+                    src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60">
+
+                <h2>Deluxe Suite</h2>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Commodi</p>
+            </a>
+        </div>
+
+        <div class="room">
+            <a href="detail.html">
+                <img
+                    src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60">
+
+                <h2>Deluxe Suite</h2>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Commodi</p>
+            </a>
+        </div>
+
+        <div class="room">
+            <a href="detail.html">
+                <img
+                    src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60">
+
+                <h2>Deluxe Suite</h2>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Commodi</p>
+            </a>
+        </div>
+
+        <div class="room">
+            <a href="detail.html">
+                <img
+                    src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60">
+
+                <h2>Deluxe Suite</h2>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Commodi</p>
+            </a>
+        </div> -->
+
+    <!-- </div>
+<div>
+    {% for apartment in apartment_list %}
+    <h2>{{apartment}}</h2>
+    {% endfor %}
+   
+</div> -->

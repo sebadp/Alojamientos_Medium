@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}<title>Reserve una Cabaña</title>{% endblock %}
+
+{% block content %}
+    <form action="", method="POST">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <button type="submit">Reservar</button>
+    </form>
+{% endblock %}
