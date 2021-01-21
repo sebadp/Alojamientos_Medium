@@ -5,13 +5,13 @@ from django.conf import settings
 class Apartment(models.Model):
     APARTMENT_CATEGORIES=(
 #        ('HOSTEL', 'HOSTEL'),
-        ('CAB1', 'Saracura'),
-        ('CAB2', 'Pa-caa'),
+        ('Saracura', 'Saracura'),
+        ('Pa-caa', 'Pa-caa'),
 #        ('AIREAC', 'AIRE ACONDICIONADO'),
          
     )
     number=models.IntegerField()
-    category=models.CharField(max_length=6, choices=APARTMENT_CATEGORIES)
+    category=models.CharField(max_length=10, choices=APARTMENT_CATEGORIES)
     rooms=models.IntegerField()
     beds=models.IntegerField()
     capacity=models.IntegerField()
