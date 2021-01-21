@@ -4,10 +4,10 @@ from django.conf import settings
 
 class Apartment(models.Model):
     APARTMENT_CATEGORIES=(
-        ('HOSTEL', 'HOSTEL'),
-        ('SINAIR', 'SIN AIRE ACONDICIONADO'),
-        ('SEMIAC', 'SEMI ACONDICIONADO'),
-        ('AIREAC', 'AIRE ACONDICIONADO'),
+#        ('HOSTEL', 'HOSTEL'),
+        ('CAB1', 'Saracura'),
+        ('CAB2', 'Pa-caa'),
+#        ('AIREAC', 'AIRE ACONDICIONADO'),
          
     )
     number=models.IntegerField()
@@ -21,8 +21,8 @@ class Apartment(models.Model):
     garage=models.BooleanField(default=False)
     precio=models.IntegerField()
     description=models.CharField(max_length=500)
-    front_img=models.ImageField()
-    gallery=models.ImageField()
+    front_img=models.ImageField(upload_to='hotel/static/hotel/images')
+    gallery=models.ImageField(upload_to='hotel/static/hotel/images')
 
     def __str__(self):
         return f' {self.number} : {self.category} tiene {self.beds} camas para alojar a {self.capacity} personas.'

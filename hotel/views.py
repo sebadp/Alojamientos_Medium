@@ -9,20 +9,26 @@ from django.urls import reverse
 
 # class ApartmentList(ListView):
 #     model=Apartment
-def ApartmentList(request):
-    apartment= Apartment.objects.all()[0]
-    apartment_categories = dict(apartment.APARTMENT_CATEGORIES)
-    # print('categories', apartment_categories)
-    apartment_values= apartment_categories.values()
-    # print('values', apartment_values)
 
-    apartment_list=[]
-    for apartment_category in apartment_categories:
-        apartment= apartment_categories.get(apartment_category)
-        apartment_url= reverse('hotel:ApartmentDetail', kwargs={'category': apartment_category})
-        # print(apartment, apartment_url)
-        apartment_list.append((apartment, apartment_url))
-    context={'apartment_list': apartment_list}
+def ApartmentList(request):
+    apartments= Apartment.objects.all()#[0]
+#     apartment_categories = dict(apartment.APARTMENT_CATEGORIES)
+#     # print('categories', apartment_categories)
+#     apartment_values= apartment_categories.values()
+#     # print('values', apartment_values)
+#     apartment_list=[]
+#     for apartment_category in apartment_categories:
+#         apartment= apartment_categories.get(apartment_category)
+#         apartment_url= reverse('hotel:ApartmentDetail', kwargs={'category': apartment_category})
+#         apartment_list.append((apartment, apartment_url, apartment_description))
+
+
+
+#    context={'apartment_list': apartment_list}
+#    return render(request, 'apartment_list.html', context)
+    context= {
+        'apartments': apartments,
+    }
     return render(request, 'apartment_list.html', context)
 
 class BookingList(ListView):
@@ -38,10 +44,14 @@ class ApartmentDetail(View):
 
         if len(apartment_list)>0:
             apartment = apartment_list[0]
+            apartment_img = apartment.gallery
+            apartment_desc = apartment.description
             apartment_category = dict(apartment.APARTMENT_CATEGORIES).get(apartment.category, None)
             context = {
             'apartment_category': apartment_category,
             'form' : form,
+            'apartment_img': apartment_img,
+            'apartment_desc': apartment_desc
             }
             return render(request, 'apartment_detail.html', context)
         else:

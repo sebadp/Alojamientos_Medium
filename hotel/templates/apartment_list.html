@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
     {% block title %}<title>Lista de apartamentos disponibles</title>{% endblock %}
     {% block content %}
@@ -6,16 +7,17 @@
     <h1 id="brand">Cabanias Saracura</h1>
  
     <div class="content">
-        {% for apartment_category, apartment_url in apartment_list %}
+        {% for apartment in apartments %}
 
         <div class="room">
             
-            <a href="{{ apartment_url }}">
-                <img
-                    src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60">
+            <a href="{% url 'hotel:ApartmentDetail' apartment.category %}">
+                <!-- <img
+                    src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"> -->
+                <img src="{{apartment.front_img.url}}" height="300" width="200" alt="">
 
-                <h2>{{apartment_category}}</h2>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Commodi</p>
+                <h2>{{apartment.category}}</h2>
+                <p>{{apartment.description}}</p>
             </a>
         </div>
 

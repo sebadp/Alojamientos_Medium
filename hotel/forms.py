@@ -9,5 +9,5 @@ class AvailabilityForm(forms.Form):
         
         # )
         # apartment_category=forms.ChoiceField(choices=APARTMENT_CATEGORIES, required=True)
-    check_in=forms.DateField(required=True)
-    check_out=forms.DateField(required=True)
+    check_in=forms.DateField(widget=forms.SelectDateWidget, required=True)
+    check_out=forms.DateField(widget=forms.SelectDateWidget, required=True)
