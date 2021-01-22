@@ -12,6 +12,14 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os
+import environ
+
+env = environ.Env(
+    # set casting, default value
+    DEBUG=(bool, False)
+)
+# reading .env file
+environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,7 +29,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'mt&ctmy4x)y#hq3rj#x7sr!bsbz!=oils7kkiq3v75!3wc3tu)'
+SECRET_KEY = env.str('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -152,8 +160,8 @@ SOCIALACCOUNT_PROVIDERS = {
         # (``socialaccount`` app) containing the required client
         # credentials, or list them here:
         'APP': {
-            'client_id': '526893606302-44q15othl4c2mjmv6sgr9dhjt7i8mai0.apps.googleusercontent.com',
-            'secret': 'V_0fQNwIYx6CjUMwVWAtQvwE',
+            'client_id': env.str('GOOGLE_CLIENT'),
+            'secret': env.str('GOOGLE_KEY'),
             'key': ''
         }
     }
