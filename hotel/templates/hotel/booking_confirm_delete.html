@@ -39,32 +39,23 @@
             </div>
 
             <!-- Div 3: Room Booking Form -->
-            <!-- <form id="booking-form" action="" method="POST">
-                {% csrf_token %}
-                <div class="input-div">
+             <form id="booking-form" action="" method="POST">
+              <h2>Estas seguro de querer cancelar la reserva?</h2>
+              {% csrf_token %}
+             <!--   <div class="input-div">
                     <label for="id_check_in">Check In : </label>
                     <input type="date" id="id_check_in" name="check_in">
                 </div>
                 <div class="input-div">
                     <label for="id_check_out">Check Out : </label>
                     <input type="date" id="id_check_out" name="check_out">
-                </div>
+                </div>-->
                 <div class="input-div">
-                    <button type="submit">Book the Room</button>
+
+                    <button type="submit">Cancelar la reserva</button>
                 </div>
-            </form> --> 
+            </form>  
 
 
-                <h2> 
-                    Django Form
-                </h2>
-                <form action="", method="POST">
-                    {% csrf_token %} 
-                    {{form.as_p}}
-                    <br>
-                    <br>
-                    <button type="submit">Reservar!</button>
-                </form>
-
-</body>
-</html>
+        </body>
+        </html>

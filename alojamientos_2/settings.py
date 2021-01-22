@@ -146,17 +146,17 @@ AUTHENTICATION_BACKENDS = [
 SITE_ID = 1
 
 # # Provider specific settings
-# SOCIALACCOUNT_PROVIDERS = {
-#     'google': {
-#         # For each OAuth based provider, either add a ``SocialApp``
-#         # (``socialaccount`` app) containing the required client
-#         # credentials, or list them here:
-#         'APP': {
-#             'client_id': '123',
-#             'secret': '456',
-#             'key': ''
-#         }
-#     }
-# }
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        # For each OAuth based provider, either add a ``SocialApp``
+        # (``socialaccount`` app) containing the required client
+        # credentials, or list them here:
+        'APP': {
+            'client_id': '526893606302-44q15othl4c2mjmv6sgr9dhjt7i8mai0.apps.googleusercontent.com',
+            'secret': 'V_0fQNwIYx6CjUMwVWAtQvwE',
+            'key': ''
+        }
+    }
+}
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

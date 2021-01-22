@@ -1,10 +1,9 @@
 from django.shortcuts import render, HttpResponse
-from django.views.generic import ListView, FormView, View
+from django.views.generic import ListView, FormView, View, DeleteView
 from .models import Apartment, Booking
 from .forms import AvailabilityForm
 from hotel.booking_functions.availability import check_availability
-from django.urls import reverse
-
+from django.urls import reverse_lazy,reverse
 # Create your views here.
 
 # class ApartmentList(ListView):
@@ -91,11 +90,18 @@ class ApartmentDetail(View):
                 check_out=data['check_out'],
             )
             booking.save()
-            return HttpResponse(booking)
+            #return HttpResponse(booking)
+            
+            return render(request, 'booking_success.html', {'booking': booking})
+
         else:
             return HttpResponse('Lo sentimos, estos apartamentos están reservados. Pruebe con otro.')
 
-class BookingView(FormView):
-    form_class=AvailabilityForm
-    template_name='availabiliti_form.html'
+# class BookingView(FormView):
+#     form_class=AvailabilityForm
+#     template_name='availabiliti_form.html'
+
+class CancelBooking(DeleteView):
+    model= Booking
+    success_url = reverse_lazy('hotel:BookingList')
 
