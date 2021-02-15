@@ -1,5 +1,5 @@
 from django.db import models
-from datetime import date
+from datetime import date, datetime
 from django.conf import settings
 from django.urls import reverse_lazy
 
@@ -56,3 +56,8 @@ class Booking(models.Model):
     
     def get_cancel_booking_url(self):
         return reverse_lazy('hotel:CancelBooking', args=[self.pk] )
+    
+# @property 
+# def get_html_url(self):
+#     url = reverse('booking_edit', args=(self.id,))  
+#     return f'<p>{self.user}</p><a href="{url}">edit</a>'

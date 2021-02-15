@@ -1,7 +1,23 @@
 {% extends 'base.html' %}
-<div>
-    <h2>exito!</h2>
 
-    <h1>exitooooo   </h1>
-    
+
+{% block content %}
+<div class="content">
+
+
+    <div class="booking">
+        <a href="{% url 'hotel:ApartmentList' %}"><i class="fas fa-arrow-alt-circle-left">Home</i></a>
+    </div>
+    <div>
+        <a href="{% url 'hotel:BookingList' %}"><i class="fas fa-arrow-alt-circle-left">Mis Reservas</i></a>
+    </div>
+    <div class="room-info">
+        <h2>
+            Tu reserva ha sido registrada con éxito. Hemos enviados a tu email nuestros datos bancarios para que abones el adelanto pactado. Gracias por confiar en nosotros.
+        </h2>
+    </div>
 </div>
+
+
+{% endblock content %}
+ 

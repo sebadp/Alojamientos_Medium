@@ -2,6 +2,10 @@ from django.shortcuts import render, HttpResponse
 from django.views.generic import ListView, FormView, View, DeleteView
 from .models import Apartment, Booking
 from .forms import AvailabilityForm
+# from .utils import Calendar
+import calendar
+from calendar import HTMLCalendar
+from django.utils.safestring import mark_safe
 from hotel.booking_functions.availability import check_availability
 from django.urls import reverse_lazy,reverse
 # Create your views here.
@@ -9,7 +13,7 @@ from django.urls import reverse_lazy,reverse
 # class ApartmentList(ListView):
 #     model=Apartment
 
-def ApartmentList(request):
+def index(request):
     apartments= Apartment.objects.all()#[0]
 #     apartment_categories = dict(apartment.APARTMENT_CATEGORIES)
 #     # print('categories', apartment_categories)
@@ -55,6 +59,7 @@ class ApartmentDetail(View):
             apartment_img = apartment.gallery
             apartment_desc = apartment.description
             apartment_category = dict(apartment.APARTMENT_CATEGORIES).get(apartment.category, None)
+            object_list = Apartment.objects.all()
             context = {
             'apartment_category': apartment_category,
             'form' : form,
@@ -105,3 +110,22 @@ class CancelBooking(DeleteView):
     model= Booking
     success_url = reverse_lazy('hotel:BookingList')
 
+class CalendarView(ListView):
+    model = Booking
+    template_name = 'hotel/calendar.html'
+    success_url = reverse_lazy("hotel:calendar")
+
+    def get_queryset(self):
+        queryset = self.model.objects.all()
+        return queryset
+    
+    
+# def get_context_data(self, **kwargs):
+#     context = super().get_context_data(**kwargs)
+#     d = get_date(self.request.GET.get('month', None))
+#     cal = Calendar(d.year, d.month)
+#     html_cal = cal.formatmonth(withyear=True)
+#     context['calendar'] = mark_safe(html_cal)
+#     context['prev_month'] = prev_month(d)
+#     context['next_month'] = next_month(d)
+#     return context   
