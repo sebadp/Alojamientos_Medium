@@ -2,9 +2,8 @@ from django.shortcuts import render, HttpResponse
 from django.views.generic import ListView, FormView, View, DeleteView
 from .models import Apartment, Booking
 from .forms import AvailabilityForm
-# from .utils import Calendar
-import calendar
-from calendar import HTMLCalendar
+from django.utils import timezone
+
 from django.utils.safestring import mark_safe
 from hotel.booking_functions.availability import check_availability
 from django.urls import reverse_lazy,reverse
@@ -36,13 +35,20 @@ def index(request):
 
 class BookingList(ListView):
     model=Booking
+    """
+    Vamos a mostrar sólo las reservas que estén en el futuro
+    Importamos timezone y validamos con gte para que la reserva
+    sea mayor o igual al día de la fecha actual
+    """
 
     def get_queryset(self, *args, **kwargs):
         if self.request.user.is_staff:
-            booking_list = Booking.objects.all()
+            booking_list = Booking.objects.filter(check_out__gte=timezone.now()) 
             return booking_list
         else:
-            booking_list= Booking.objects.filter(user=self.request.user)
+            booking_by_user= Booking.objects.filter(user=self.request.user)
+            booking_list = booking_by_user.filter(check_out__gte=timezone.now()) 
+
             return booking_list
 
 
@@ -59,8 +65,9 @@ class ApartmentDetail(View):
             apartment_img = apartment.gallery
             apartment_desc = apartment.description
             apartment_category = dict(apartment.APARTMENT_CATEGORIES).get(apartment.category, None)
-            object_list = Apartment.objects.all()
+            object_list = Booking.objects.all()
             context = {
+            'object_list': object_list,
             'apartment_category': apartment_category,
             'form' : form,
             'apartment_img': apartment_img,
