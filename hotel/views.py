@@ -85,8 +85,15 @@ class ApartmentDetail(View):
 
         if form.is_valid():
             data = form.cleaned_data
-        # else:
-        #     return HttpResponse('El formulario tuvo un problema, vuelva a intentarlo.')
+            
+        else:
+            return HttpResponse('El formulario tuvo un problema, vuelva a intentarlo.')
+        """
+        Acá evitamos el reservar para atrás 
+        """
+        if data['check_in'] > data['check_out']:
+            return  HttpResponse('No puedes reservar de esta manera!')  
+
         apartment_list= Apartment.objects.filter(category=category)
 
         available_apartments=[]
@@ -95,6 +102,8 @@ class ApartmentDetail(View):
                 available_apartments.append(apartment)
         if len(available_apartments)>0:
             apartment=available_apartments[0]
+  
+            
             booking= Booking.objects.create(
                 user=self.request.user,
                 apartment=apartment,
