@@ -3,7 +3,7 @@ from django.views.generic import ListView, FormView, View, DeleteView
 from .models import Apartment, Booking
 from .forms import AvailabilityForm
 from django.utils import timezone
-
+import datetime
 from django.utils.safestring import mark_safe
 from hotel.booking_functions.availability import check_availability
 from django.urls import reverse_lazy,reverse
@@ -93,6 +93,11 @@ class ApartmentDetail(View):
         """
         if data['check_in'] > data['check_out']:
             return  HttpResponse('No puedes reservar de esta manera!')  
+        """
+        Acá evitamos el reservar  el pasado 
+        """
+        if data['check_in'] < timezone.now().date():
+            return  HttpResponse('No puedes reservar el pasado...')  
 
         apartment_list= Apartment.objects.filter(category=category)
 
