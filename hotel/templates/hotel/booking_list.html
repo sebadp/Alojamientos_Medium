@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservas</title>
+    <script src='https://kit.fontawesome.com/692189991f.js' crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'hotel/css/bookings.css' %}">
+</head>
+<body>
+    <div class="content">
+        <div class="headings">
+            <h1> Tus Reservas</h1>
+            <h2>Hola {{ user }}</h2>
+        </div>
+        <div class="home">
+            <div class="home">
+                <a href="{% url 'hotel:index' %}"><i class="fas fa-arrow-alt-circle-left">Inicio</i></a>
+            </div>
+        </div>
+        <div class="bookings">
+            
+            {% for booking in booking_list %}
+            <div class="booking">
+                <img src="" alt="">
+                <div class="category">
+                    <h2>Cabańa {{booking.apartment.category}}</h2>
+                </div>
+
+                <div class="form">
+                    <h3> Usuario:{{booking.user}}</h3>
+                </div>
+                <div class="form">
+                    <h3> Desde:{{booking.check_in}}</h3>
+                </div>
+                <div class="form">
+                    <h3> Hasta:{{booking.check_out}}</h3>
+                </div>
+                <div class="form">
+                    <h3> Capacidad:{{booking.apartment.capacity}}</h3>
+                </div>
+                <div class="form">
+                    <h3> Días de reserva: {{booking.get_dias}}</h3>
+                </div>
+                <div class="form">
+                    <h3> Precio: ${{booking.get_total}}</h3>
+                </div>
+                <div class="cancel"><a href="{{ booking.get_cancel_booking_url }}" class="invisible"><i class="far fa-2x fa-times-circle">Cancelar Reserva</i></a></div>
+
+            </div>
+            {% endfor %}
+                
+        </div>
+    </div>
+
+</body>
+</html>
