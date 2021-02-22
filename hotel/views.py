@@ -31,7 +31,7 @@ def index(request):
     context= {
         'apartments': apartments,
     }
-    return render(request, 'index.html', context)
+    return render(request, 'hotel/index.html', context)
 
 class BookingList(ListView):
     model=Booking
