@@ -1,1 +1,1 @@
-web:gunicorn alojamientos_2.wsgi
+web: gunicorn alojamientos_2.wsgi
