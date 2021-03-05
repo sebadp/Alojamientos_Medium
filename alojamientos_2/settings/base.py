@@ -29,12 +29,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env.str('SECRET_KEY')
+# SECRET_KEY = env.str('SECRET_KEY')
+SECRET_KEY = 'mt&ctmy4x)y#hq3rj#x7sr!bsbz!=oils7kkiq3v75!3wc3tu)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -144,14 +145,26 @@ AUTHENTICATION_BACKENDS = [
 SITE_ID = 1
 
 # # Provider specific settings
+# SOCIALACCOUNT_PROVIDERS = {
+#     'google': {
+#         # For each OAuth based provider, either add a ``SocialApp``
+#         # (``socialaccount`` app) containing the required client
+#         # credentials, or list them here:
+#         'APP': {
+#             'client_id': env.str('GOOGLE_CLIENT'),
+#             'secret': env.str('GOOGLE_KEY'),
+#             'key': ''
+#         }
+#     }
+# }
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
         # For each OAuth based provider, either add a ``SocialApp``
         # (``socialaccount`` app) containing the required client
         # credentials, or list them here:
         'APP': {
-            'client_id': env.str('GOOGLE_CLIENT'),
-            'secret': env.str('GOOGLE_KEY'),
+            'client_id': '526893606302-44q15othl4c2mjmv6sgr9dhjt7i8mai0.apps.googleusercontent.com',
+            'secret': 'V_0fQNwIYx6CjUMwVWAtQvwE',
             'key': ''
         }
     }
