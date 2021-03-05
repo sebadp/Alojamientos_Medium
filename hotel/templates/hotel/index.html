@@ -23,6 +23,7 @@
     </header>
 
     <section class="main">
+        {% if request.user.is_superuser %} 
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
@@ -42,28 +43,33 @@
                 </div>
               </div>
             </div>
-          </nav>
+        </nav>
+        {% endif %}
         <h1 class="h1">Cabañas de Selva</h1>
         <h2 class="h2">Equipadas para tu confort a Minutos del centro de El Soberbio.</h2>
         <div class="main__container">
             
             <div class="targeta">
+                <a href="{% url 'hotel:ApartmentDetail' 'Saracura' %}">
                 <div class="img"><img src="{% static 'hotel/images/pic02.jpg' %}" alt="cab1"></div>
                 <div class="txt">
                     <h1>Cabaña para 5 personas</h1>
                     <h2>Dos habitaciones</h2>
                     <p>Habitación con Aire: Cama doble, cama simple. Habitación con ventilador: Dos camas simples.  Cocina y comedor equipado con vajilla. Jardín y quincho con parrillero. Cochera disponible.</p>
-                    <b><a href="{% url 'hotel:ApartmentDetail' 'Saracura' %}">RESERVALA YA!</a></b>
+                    <b>RESERVALA YA!</b>
                 </div>
+                </a>
             </div>
             <div class="targeta">
+                <a href="{% url 'hotel:ApartmentDetail' 'Pa-caa' %}">
                 <div class="img"><img src="{% static 'hotel/images/pic03.jpg' %}" alt="cab2"></div>
                 <div class="txt">
                     <h1>Cabaña para 3 personas</h1>
                     <h2>Habitación con Aire</h2>
                     <p>Habitación con cama doble. Cocina y comedor equipado con vajilla. Sofácama. Jardín y quincho con parrillero. Cochera disponible.</p>
-                    <b><a href="{% url 'hotel:ApartmentDetail' 'PaCaa' %}">RESERVALA YA!</a></b>
+                    <b>RESERVALA YA!</b>
                 </div>
+                </a>
             </div>
         </div>
     </section>

@@ -557,8 +557,14 @@ header.img{
     height: 100%;
     object-fit: cover;
 }
+.productos{
+  background-color: #fcecc2;
+
+}
 .productos .container{
   display: block;
+  background-color: #fcecc2;
+
   max-width: 70%;
   margin-left: auto;
   margin-right: auto;

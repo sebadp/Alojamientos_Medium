@@ -1,104 +1,63 @@
-/* Root CSS */
-
 *{
     padding:0;
     margin:0;
     box-sizing: border-box;
 }
+
 body{
-    background-color: rgb(46, 47, 48);
+    background-color: #fcecc2;
     color: rgb(236, 235, 228);
     font-family: sans-serif;
     line-height: 1.25;
-    height: 100vh;
-    width: 100vw;
+    max-width: 100vw;
+
+    position: relative;
 
 }
+.banner img{
+    max-width: 100vw;
 
-/* Main Divs */
-.banner{
-    width: 100vw;
-    height: 100VH;
+}
+.info{
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    max-height: 80vh;
     display: block;
-    position: absolute;
-}
-
-.content {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width:100%;
-    justify-content: left;
-}
-
-.image{
-    flex: 0.3;
-}
-
-.room{
-    flex:0.5;
-    margin: 2rem;
-    display:flex;
-    text-align: left;
-    align-items: start;  
-    flex-direction: column;
-}
-
-/* Sub Divs */
-
+    }
 .home{
-    flex: 0.2;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+
 }
-.room-info{
-    flex: 0.4;
-    margin: 5rem 1rem;
-    
+.carrusel__container{
+    position: relative;
+    display: block;
+    width: 70vw;
+    height: 50vh;
+    margin-left: auto;
+    margin-right: auto;
 }
-
-form{
-    display: flex;
-    flex: 0.4 1 auto;
-    flex-direction: column;
+.carrusel__container img{
+    object-fit: cover;
+    max-height: 65vh;
+    width: 70vw;
 }
+.reserva{
+    margin: 11em;
+    display: block;
 
-/* Inside Sub Divs */
-
-.image img{
-    flex:1;
-    max-height: 100vh;
-}
-
-i{
-    color:#dfdfdf;
-    font-size: 2rem;
-}
-
-/* Form's CSS */
-
-.input-div{
-    flex: 1 1 auto;
-    margin:1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 }
 
-input, button{
-    flex:1;
-    width:300px;
-    border-radius: 0.5rem;
-    line-height: 1.5;
-    font-size: 1.5rem;
-    color: #555;
+.reserva .info-reservas, .form, .card, h1, h2, p{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
 
-button{
-    background-color: #dfdfdf;
-    color:rgb(6, 137, 245);
-    outline:none;
-}
+footer img{
+    max-width: 100vw;
 
-button:hover{
-    color:#dfdfdf;
-    background-color: rgb(6, 137, 245);
 }
