@@ -557,7 +557,13 @@ header.img{
     height: 100%;
     object-fit: cover;
 }
-
+.productos .container{
+  display: block;
+  max-width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 8em;
+}
 footer{
   text-align: center;
   padding: 0;
@@ -650,6 +656,13 @@ margin: .5em;
   object-fit: cover;
 }
 
+.productos .container{
+  display: block;
+  max-width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1em;
+}
 footer{
   text-align: center;
   padding: 0em;
