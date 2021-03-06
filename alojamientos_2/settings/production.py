@@ -13,6 +13,10 @@ ALLOWED_HOSTS = ['saracura2.herokuapp.com']
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': 'dah5hinhc1fr92',
+        'USER':'pdjdsilreeaovy',
+        'PASSWORD': '9d8558e9c87f19c845257443f3202d86861c0bc039360138f22d6d0d58f5e157',
+        'HOST': 'ec2-54-145-249-177.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
