@@ -12,7 +12,7 @@ ALLOWED_HOSTS = ['saracura2.herokuapp.com']
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'dah5hinhc1fr92',
         'USER':'pdjdsilreeaovy',
         'PASSWORD': '9d8558e9c87f19c845257443f3202d86861c0bc039360138f22d6d0d58f5e157',
