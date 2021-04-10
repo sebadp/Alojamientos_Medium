@@ -1,2 +1,2 @@
 # Cabañas Saracura
-Django proyect. Apartments rental, booking sistem included.
+Python + Django project. Apartments rental, booking sistem included.
